@@ -6,6 +6,11 @@ const server = express();
 
 server.use(express.json());
 
+// assumptions of what the below endpoint returns
+// returns http 200
+// returns json
+// the body has an api property with value "up"
+
 server.get("/", (req, res) => {
   res.status(200).json({ api: "up" });
 });
