@@ -5,6 +5,8 @@ const pgConnection = process.env.DATABASE_URL || "postgresql://postgres@localhos
  // @localhost : the address of my server
  // /hobbits : name of the db I want to use on the server
 
+
+ // the knexfile defines the ways to connect to the db with this configuration object
 module.exports = {
   development: {
     client: "sqlite3",
@@ -37,8 +39,8 @@ module.exports = {
   // use this configuration for Heroku
   // install postgres: npm i pg 
   production: {
-    client: "pg",
-    connection: pgConnection, // connection string
+    client: "pg", // targeting pg db
+    connection: pgConnection, // connection string, being read from the env or define a default 
     pool: {
       min: 2,
       max: 10,
